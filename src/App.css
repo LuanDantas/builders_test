@@ -5,7 +5,7 @@
 }
 
 body {
-  padding-top: 4rem;
+  height: 100vh;
   margin: 0;
   color: #333333;
   --type-first: Helvetica, Arial, sans-serif;
@@ -52,9 +52,9 @@ a {
   margin: 0 auto;
 }
 
-.mainContainer {
+/* .mainContainer {
   margin-top: 2rem;
-}
+} */
 
 .title {
   font-family: var(--type-second);
@@ -94,9 +94,15 @@ a {
 .App {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh + 8rem);
+  height: 100vh;
 }
 
 .AppBody {
   flex: 1;
+}
+
+#map {
+  display: block;
+  width: 100%;
+  height: 91.6vh;
 }

@@ -14,11 +14,10 @@ function App() {
         <main className="AppBody">
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="login/*" element={<Login />} /> */}
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );
