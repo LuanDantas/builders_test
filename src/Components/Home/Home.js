@@ -10,6 +10,7 @@ import 'moment-timezone';
 import { WEATHER_BY_GEOLOCATION } from '../../API/api';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Enviar } from '../../Assets/atualizar.svg';
+import Address from '../Common/Address';
 
 Moment.globalMoment = moment;
 Moment.globalLocale = 'pt-br';
@@ -48,7 +49,7 @@ const Home = () => {
 
       getData();
     });
-  }, [lat, request]);
+  }, [request]);
 
   return (
     <section className={styles.mapContainer}>
@@ -60,11 +61,11 @@ const Home = () => {
         <Loading />
       )}
       {data && (
-        <div
+        <section
           className={`${styles.weather} ${data.weather[0].main.toLowerCase()}`}
         >
-          <div>
-            <h2 className={styles.city}>{data.name}</h2>
+          <div className={styles.infos}>
+            <Address latitude={latitude} longitude={longitude} />
             <h3 className={styles.date}>
               <Moment format="DD">{currentDate}</Moment> de{' '}
               <span>
@@ -72,27 +73,33 @@ const Home = () => {
               </span>{' '}
               de <Moment format="YYYY">{currentDate}</Moment>
             </h3>
-            <p className={styles.description}>{data.weather[0].description}</p>
-            <img
-              src={`http://openweathermap.org/img/wn//${data.weather[0].icon}@2x.png`}
-              alt={data.weather[0].description}
-            />
-            <Link to="/" className={styles.update}>
-              <Enviar /> Recarregar informações
-            </Link>
           </div>
-          <div>
-            <h2 className={styles.temp}>
-              {parseFloat(data.main.temp - 273.15).toFixed(0)}°
-            </h2>
-            <h3 className={styles.variableTemp}>
-              <span className={styles.maxTemp}>Máx:</span>{' '}
-              {temperatureConverter(data.main.temp_max)}° |{' '}
-              <span className={styles.minTemp}>Mín:</span>{' '}
-              {temperatureConverter(data.main.temp_min)}°
-            </h3>
+          <div className={styles.infosWeather}>
+            <div>
+              <p className={styles.description}>
+                {data.weather[0].description}
+              </p>
+              <img
+                src={`http://openweathermap.org/img/wn//${data.weather[0].icon}@2x.png`}
+                alt={data.weather[0].description}
+              />
+              <Link to="/" className={styles.update}>
+                <Enviar /> Recarregar informações
+              </Link>
+            </div>
+            <div>
+              <h2 className={styles.temp}>
+                {parseFloat(data.main.temp - 273.15).toFixed(0)}°
+              </h2>
+              <h3 className={styles.variableTemp}>
+                <span className={styles.maxTemp}>Máx:</span>{' '}
+                {temperatureConverter(data.main.temp_max)}° |{' '}
+                <span className={styles.minTemp}>Mín:</span>{' '}
+                {temperatureConverter(data.main.temp_min)}°
+              </h3>
+            </div>
           </div>
-        </div>
+        </section>
       )}
     </section>
   );
