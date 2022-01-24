@@ -1,39 +1,34 @@
 import React from 'react';
-import {
-  GoogleMap,
-  Marker,
-  InfoWindow,
-  useJsApiLoader,
-} from '@react-google-maps/api';
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 
-const containerStyle = {
-  width: '100%',
-  height: '91.6vh',
-};
+function MapComponent({ latitude, longitude }) {
+  const [map, setMap] = React.useState(null);
 
-const center = {
-  lat: -20.770053733511237,
-  lng: -49.38811277691601,
-};
+  const containerStyle = {
+    width: '100%',
+    height: '91.6vh',
+  };
 
-const position = {
-  lat: -20.770053733511237,
-  lng: -49.38811277691601,
-};
+  const center = {
+    lat: latitude,
+    lng: longitude,
+  };
 
-const zoom = 16;
+  const position = {
+    lat: latitude,
+    lng: longitude,
+  };
 
-const options = {
-  disableDefaultUI: true,
-};
+  const zoom = 16;
 
-function MyComponent() {
+  const options = {
+    disableDefaultUI: true,
+  };
+
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: 'AIzaSyBzEYVPx_jL90u0DvaOSMFiP9KjURLNsNg',
   });
-
-  const [map, setMap] = React.useState(null);
 
   return isLoaded ? (
     <GoogleMap
@@ -42,8 +37,6 @@ function MyComponent() {
       zoom={zoom}
       options={options}
       onLoad={(map, marker) => {
-        const bounds = new window.google.maps.LatLngBounds();
-        // map.fitBounds(bounds);
         setMap(map);
       }}
       onUnmount={(map) => {
@@ -57,4 +50,4 @@ function MyComponent() {
   );
 }
 
-export default React.memo(MyComponent);
+export default React.memo(MapComponent);
