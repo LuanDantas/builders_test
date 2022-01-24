@@ -1,0 +1,137 @@
+.mapContainer {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+@media (max-width: 970px) {
+  .mapContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .mapContainer .map {
+    order: 1;
+    display: block;
+    width: 100%;
+    height: 52vh !important;
+  }
+
+  .mapContainer .map div:first-child {
+    height: 52vh !important;
+  }
+}
+
+.weather {
+  display: block;
+  gap: 0px 0px;
+  width: 30rem;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0px 1px 6px rgb(0 0 0 / 13%);
+  padding: 1.3rem 1.2rem 0.5rem 1.2rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+@media (max-width: 970px) {
+  .weather {
+    order: 0;
+    width: 100%;
+    height: 38vh;
+    border-radius: 0;
+    box-shadow: none;
+    top: 0;
+    right: 0;
+    position: relative;
+  }
+}
+
+.weather div {
+  display: inline-block;
+}
+
+.weather .infos {
+  width: 100%;
+  border-bottom: 1px dashed #dbdbdb;
+  padding-bottom: 1.5rem;
+}
+
+.weather .infosWeather {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+
+.weather .address {
+  font-size: 18px;
+  color: #000000;
+  font-weight: 500;
+}
+
+.weather .date {
+  font-size: 16px;
+  color: #9e9e9e;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.weather .date span {
+  text-transform: capitalize;
+}
+
+.weather .description {
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.weather .temp {
+  display: block;
+  width: 100%;
+  font-size: 80px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.weather .variableTemp {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+.weather .maxTemp {
+  color: #d20d0d;
+}
+
+.weather .minTemp {
+  color: #448bcc;
+}
+
+.weather .update {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #ffffff;
+  color: #448bcc;
+  padding: 8px 10px;
+  margin: 10px 0 0 0;
+}
+
+@media (max-width: 970px) {
+  .weather .update {
+    margin-top: 0;
+  }
+}
+
+.weather .update svg {
+  width: 20px;
+  height: auto;
+  margin-right: 10px;
+}
