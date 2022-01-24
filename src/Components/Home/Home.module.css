@@ -70,3 +70,20 @@
 .weather .minTemp {
   color: #448bcc;
 }
+
+.weather .update {
+  display: flex;
+  align-items: center;
+  width: 82%;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #448bcc;
+  padding: 8px 10px;
+  margin: 10px 0 0 0;
+}
+
+.weather .update svg {
+  width: 25px;
+  height: auto;
+  margin-right: 10px;
+}
