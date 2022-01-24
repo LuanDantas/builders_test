@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from './Home.module.css';
+import { Link } from 'react-router-dom';
 import Map from '../Common/Map';
+import Address from '../Common/Address';
 import Error from '../Helpers/Error';
 import Loading from '../Helpers/Loading';
 import useFetch from '../../Hooks/useFetch';
+import { WEATHER_BY_GEOLOCATION } from '../../API/api';
 import moment from 'moment/min/moment-with-locales';
 import Moment from 'react-moment';
 import 'moment-timezone';
-import { WEATHER_BY_GEOLOCATION } from '../../API/api';
-import { Link } from 'react-router-dom';
+import styles from './Home.module.css';
 import { ReactComponent as Enviar } from '../../Assets/atualizar.svg';
-import Address from '../Common/Address';
 
 Moment.globalMoment = moment;
 Moment.globalLocale = 'pt-br';
@@ -19,6 +19,7 @@ const Home = () => {
   const { data, error, loading, request } = useFetch();
   const [latitude, setLatitude] = React.useState('');
   const [longitude, setLongitude] = React.useState('');
+  const [update, setUpdate] = React.useState(0);
 
   let lat;
   let lon;
@@ -49,17 +50,13 @@ const Home = () => {
 
       getData();
     });
-  }, [request]);
+  }, [update, request]);
 
   return (
     <section className={styles.mapContainer}>
       {error && <Error error={error} />}
       {loading && <Loading />}
-      {latitude && longitude ? (
-        <Map latitude={latitude} longitude={longitude} />
-      ) : (
-        <Loading />
-      )}
+      {data ? <Map latitude={latitude} longitude={longitude} /> : <Loading />}
       {data && (
         <section
           className={`${styles.weather} ${data.weather[0].main.toLowerCase()}`}
@@ -83,8 +80,13 @@ const Home = () => {
                 src={`http://openweathermap.org/img/wn//${data.weather[0].icon}@2x.png`}
                 alt={data.weather[0].description}
               />
-              <Link to="/" className={styles.update}>
-                <Enviar /> Recarregar informações
+              <Link
+                to="/"
+                className={styles.update}
+                onClick={() => setUpdate(update + 1)}
+              >
+                <Enviar />{' '}
+                {loading ? 'Carregando...' : 'Recarregar informações'}
               </Link>
             </div>
             <div>

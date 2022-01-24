@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './Components/Layout/Header';
-import Footer from './Components/Layout/Footer';
 import Home from './Components/Home/Home';
 import NotFound from './Components/Common/NotFound';
 import './App.css';
@@ -17,7 +16,6 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );
