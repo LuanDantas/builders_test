@@ -4,6 +4,24 @@
   position: relative;
 }
 
+@media (max-width: 970px) {
+  .mapContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .mapContainer .map {
+    order: 1;
+    display: block;
+    width: 100%;
+    height: 52vh !important;
+  }
+
+  .mapContainer .map div:first-child {
+    height: 52vh !important;
+  }
+}
+
 .weather {
   display: block;
   gap: 0px 0px;
@@ -17,11 +35,25 @@
   right: 2rem;
 }
 
+@media (max-width: 970px) {
+  .weather {
+    order: 0;
+    width: 100%;
+    height: 38vh;
+    border-radius: 0;
+    box-shadow: none;
+    top: 0;
+    right: 0;
+    position: relative;
+  }
+}
+
 .weather div {
   display: inline-block;
 }
 
 .weather .infos {
+  width: 100%;
   border-bottom: 1px dashed #dbdbdb;
   padding-bottom: 1.5rem;
 }
@@ -90,6 +122,12 @@
   color: #448bcc;
   padding: 8px 10px;
   margin: 10px 0 0 0;
+}
+
+@media (max-width: 970px) {
+  .weather .update {
+    margin-top: 0;
+  }
 }
 
 .weather .update svg {

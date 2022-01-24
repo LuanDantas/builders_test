@@ -56,7 +56,13 @@ const Home = () => {
     <section className={styles.mapContainer}>
       {error && <Error error={error} />}
       {loading && <Loading />}
-      {data ? <Map latitude={latitude} longitude={longitude} /> : <Loading />}
+      {data ? (
+        <div className={styles.map}>
+          <Map latitude={latitude} longitude={longitude} />
+        </div>
+      ) : (
+        <Loading />
+      )}
       {data && (
         <section
           className={`${styles.weather} ${data.weather[0].main.toLowerCase()}`}

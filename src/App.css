@@ -52,10 +52,6 @@ a {
   margin: 0 auto;
 }
 
-/* .mainContainer {
-  margin-top: 2rem;
-} */
-
 .title {
   font-family: var(--type-second);
   line-height: 1;
@@ -105,64 +101,4 @@ a {
   display: block;
   width: 100%;
   height: 91.6vh;
-}
-
-/* .clear {
-  background: rgb(0, 176, 214);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 176, 214, 1) 0%,
-    rgba(65, 203, 233, 1) 50%,
-    rgba(220, 249, 255, 1) 100%
-  );
-}
-
-.sunny {
-  background: rgb(240, 108, 40);
-  background: radial-gradient(
-    180deg,
-    rgba(240, 108, 40, 1) 0%,
-    rgba(237, 200, 165, 1) 100%
-  );
-}
-
-.rainy {
-  background-color: #afafaf;
-}
-
-.cloudy,
-.clouds {
-  background: rgb(150, 150, 150);
-  background: linear-gradient(
-    180deg,
-    rgba(150, 150, 150, 1) 0%,
-    rgba(186, 186, 186, 1) 45%,
-    rgba(245, 245, 245, 1) 100%
-  );
-}
-
-.mist {
-  background: rgb(1, 4, 80);
-  background: linear-gradient(
-    180deg,
-    rgba(1, 4, 80, 1) 0%,
-    rgba(11, 16, 119, 1) 50%,
-    rgba(98, 104, 227, 1) 100%
-  );
-}
-
-.snow {
-  background: rgb(189, 218, 224);
-  background: linear-gradient(
-    180deg,
-    rgba(189, 218, 224, 1) 0%,
-    rgba(141, 164, 168, 1) 50%,
-    rgba(110, 122, 125, 1) 100%
-  );
-} */
-
-.mist h2,
-.mist h3,
-.mist p {
-  color: #ffffff;
 }
